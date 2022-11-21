@@ -19,7 +19,7 @@ public class ProjectDetailsController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProjectDetailsController.class);
 
-
+//chan1
     @Autowired
     private ProjectDetailsService service;
 
@@ -30,6 +30,7 @@ public class ProjectDetailsController {
     @PostMapping
     public ResponseEntity<RestResponse> addProject(@Valid @RequestBody ProjectDetailsDTO dto){
         logger.info("Request For Add Project Parameter : "+dto);
+
         RestResponse response = service.addProject(dto).orElse(null);
         HttpStatus status = HttpStatus.CONFLICT;
         if(null!=response && response.isSuccess())
